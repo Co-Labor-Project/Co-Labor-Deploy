@@ -265,3 +265,5 @@ newgrp docker
 # WSL 업데이트
 wsl --update
 ```
+
+잘못된 내용과 질문은 [이슈](https://github.com/Co-Labor-Project/Co-Labor-Deploy/issues)와 [PR](https://github.com/Co-Labor-Project/Co-Labor-Deploy/pulls)로 알려주세요 💡

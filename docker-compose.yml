@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./Co-Labor-FE
+      dockerfile: Dockerfile
+    ports:
+      - '5173:5173'
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:8080 # 백엔드 API URL
+    volumes:
+      - ./Co-Labor-FE:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+
+  backend:
+    build:
+      context: ./Co-Labor-BE
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '8080:8080'
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/yourdb
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=yourpassword
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      timeout: 20s
+      retries: 10
+    environment:
+      - MYSQL_DATABASE=yourdb
+      - MYSQL_ROOT_PASSWORD=yourpassword
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:

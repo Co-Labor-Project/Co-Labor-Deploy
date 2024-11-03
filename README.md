@@ -40,7 +40,7 @@
 wsl --install
 ```
 
-<br/>
+---
 
 ### Linux (Ubuntu)
 
@@ -82,7 +82,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-<br/>
+---
 
 ### MacOS
 
@@ -101,7 +101,7 @@ newgrp docker
 
 ## 설치 및 실행
 
-**1. 설치하고 싶은 위치에 다음 명령을 실행하세요.**
+**1. 프로젝트 루트 폴더로 이동 후 clone**
 
 ```bash
 git clone

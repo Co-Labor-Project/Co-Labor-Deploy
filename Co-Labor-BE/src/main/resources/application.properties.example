@@ -3,25 +3,22 @@ spring.application.name=co-labor
 # Database Settings
 # MySQL Driver
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-# DB Source URL
+# DB Source URL 확인 후 변경 필요
 spring.datasource.url=jdbc:mysql://localhost:3306/co-labor
-# DB username
-spring.datasource.username=
+
+# DB username 확인 후 변경 필요
+spring.datasource.username=root
 #DB password
-spring.datasource.password=
+spring.datasource.password=root
 
 spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=validate
+# 개발시 validate 혹은 update로 변경 후 개발
+spring.jpa.hibernate.ddl-auto=create
 spring.jpa.properties.hibernate.format_sql=false
 
 # Logging Settings
 logging.level.root=INFO
 logging.level.pelican.co_labor=DEBUG
-
-# open ai Settings
-openai.api.key=
-spring.ai.openai.api-key=
-spring.ai.openai.model=
 
 # File Upload Settings
 spring.servlet.multipart.enabled=true
@@ -33,15 +30,16 @@ upload.dir=path/to/your/upload/directory/
 spring.mvc.static-path-pattern=/static/**
 spring.resources.static-locations=classpath:/static/
 
+# open ai Settings, key 세팅 및 파인튜닝 모델
+# 파인튜닝 모델을 사용하지 않는 경우 사용하는 모델 명시
+spring.ai.openai.api-key=
+spring.ai.openai.model=
 
-
+# 공공데이터 포털에서 API 키 발급 후 사용
+# https://www.data.go.kr/data/15000736/openapi.do
 # Support Center API Key
 public.data.api.key.encoded=
 public.data.api.key.decoded=
-
-# naver.map API Key
-naver.map.client.id=
-naver.map.client.secret=
 
 # Enterprise List API Key
 public.enterprise.list.key.encoded=
@@ -50,6 +48,10 @@ public.enterprise.list.key.decoded=
 # Enterprise ID Check API Key
 public.enterprise.id.check.key.encoded=
 public.enterprise.id.check.key.decoded=
+
+# naver.map API Key
+naver.map.client.id=
+naver.map.client.secret=
 
 # Session Settings
 server.servlet.session.timeout=30m

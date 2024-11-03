@@ -1,3 +1,4 @@
+# Co-Labor Deploy
 
 ## 목차
 1. [Demo](#demo)
@@ -19,17 +20,17 @@
 
 ### Windows
 
-1. 시스템 요구사항
+**1. 시스템 요구사항**
 - Windows 10/11 Pro, Enterprise 또는 Education (빌드 15063 이상)
 - WSL2 기능 활성화
 - 가상화 기능 활성화 (BIOS 설정)
 
-2. Docker Desktop 설치
+**2. Docker Desktop 설치**
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)에서 설치 파일 다운로드
 - 설치 중 "Use WSL 2 instead of Hyper-V" 옵션 선택
 - 설치 완료 후 시스템 재시작
 
-3. WSL2 설치 (Windows Subsystem for Linux 2)
+**3. WSL2 설치 (Windows Subsystem for Linux 2)**
 ```powershell
 # PowerShell 관리자 권한으로 실행
 wsl --install
@@ -40,13 +41,13 @@ wsl --install
 
 
 ### Linux (Ubuntu)
-1. 시스템 요구사항
+**1. 시스템 요구사항**
 - Ubuntu 20.04 LTS 이상
 - 64비트 버전
 - sudo 권한이 있는 사용자 계정
 
 
-2. 도커 설치
+**2. 도커 설치**
 
 ```sh
 # 이전 버전 제거
@@ -83,12 +84,12 @@ newgrp docker
 
 ### MacOS
 
-1. 시스템 요구사항
+**1. 시스템 요구사항**
 - macOS 11 이상
 - Apple Silicon (M1/M2) 또는 Intel CPU
 
 
-2. Docker Desktop 설치
+**2. Docker Desktop 설치**
 
 - Docker Desktop에서 설치 파일 다운로드
 - 다운로드한 .dmg 파일 실행 및 설치
@@ -101,20 +102,20 @@ newgrp docker
 
 ## 설치 및 실행
 
-1. 설치하고 싶은 위치에 다음 명령을 실행하세요.
+**1. 설치하고 싶은 위치에 다음 명령을 실행하세요.**
 ```bash
 git clone
 cd Co-Labor
 ```
 
 
-2. 도커 이미지 다운
+**2. 도커 이미지 다운**
 ```bash
 docker compose pull
 ```
 
 
-3. 도커 서비스 시작
+**3. 도커 서비스 시작**
 ```bash
 docker compose up -d
 ```
@@ -131,27 +132,25 @@ docker compose up -d
 ## 프로젝트 구조
 ```bash
 Co-Labor/
-├── Co-Labor-FE/          # 프론트엔드
+├── Co-Labor-FE/          
 │   ├── src/
 │   ├── public/
 │   └── package.json
 │
-├── Co-Labor-BE/          # 백엔드
+├── Co-Labor-BE/         
 │   ├── src/
 │   ├── gradle/
 │   └── build.gradle
 │
-└── docker-compose.yml    # 도커 컴포즈 설정
+└── docker-compose.yml   
 ```
 
 
 <br/>
 
 ## FAQ
-### 포트 충돌 문제- MySQL 포트(3306) 충돌 발생 시:
-
+#### 포트 충돌 문제- MySQL 포트(3306) 충돌 
 - 기존 MySQL 서비스 중지
-
 ```bash
 # Windows
 net stop MySQL80
@@ -160,20 +159,14 @@ net stop MySQL80
 sudo service mysql stop
 ```
 
-### 도커 권한 문제 (Linux)
+#### 도커 권한 문제 (Linux)
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-
-
-
-<br/>
-
-
-### Windows WSL 문제
+#### Windows WSL 문제
 ```powershell
 # WSL 업데이트
 wsl --update

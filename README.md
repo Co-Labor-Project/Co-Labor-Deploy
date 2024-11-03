@@ -162,7 +162,7 @@ docker compose pull
    `sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch`
 
 2. Add Elasticsearch repository
-
+   ```
    echo "[elasticsearch]
    name=Elasticsearch repository for 8.x packages
    baseurl=https://artifacts.elastic.co/packages/8.x/yum
@@ -171,7 +171,8 @@ docker compose pull
    enabled=0
    autorefresh=1
    type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo
-
+   ```
+   
 3. Install Elasticsearch  
    `sudo yum install --enablerepo=elasticsearch elasticsearch -y`
 
@@ -180,19 +181,19 @@ docker compose pull
 
    Add or modify the following:
 
-  ```yml
-   cluster.name: app_name
-   node.name: node-1
-   network.host: accessible_address
-   http.port: 9200
-   discovery.type: single-node
-  ```
+      ```yml
+       cluster.name: app_name
+       node.name: node-1
+       network.host: accessible_address
+       http.port: 9200
+       discovery.type: single-node
+      ```
 
 5. Start and enable Elasticsearch service
-  ```sh
-   sudo systemctl start elasticsearch
-   sudo systemctl enable elasticsearch
-  ```
+      ```sh
+       sudo systemctl start elasticsearch
+       sudo systemctl enable elasticsearch
+      ```
 
 6. Register Elasticsearch documents  
    Download data from https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=71723 and register it.

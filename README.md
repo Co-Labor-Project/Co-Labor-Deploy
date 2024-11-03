@@ -10,7 +10,7 @@
 <br/>
 
 ## DEMO
-- 데모 페이지: https://colabor.site/
+- 웹페이지: https://colabor.site/
 - 데모 비디오: https://youtu.be/n80eBnDeCCo?si=bNq9XH5HFnQKndKz
 
 <br/>
